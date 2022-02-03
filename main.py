@@ -2,15 +2,15 @@ from datetime import datetime, timedelta
 from time import sleep
 
 from dateutil import parser
-from keyboard import add_hotkey
+from pynput import keyboard
 from todoist.api import TodoistAPI
-from win10toast import ToastNotifier
+import pync
+import os
 
 api = TodoistAPI('3ecd6c78d4e7a9548a4e4823807850906e8f6650')
 
 notified = []
 
-notification = ToastNotifier()
 
 iterations = 0
 global snooze
@@ -25,7 +25,7 @@ def silent_notifications():
         snooze = True
 
 
-add_hotkey('ctrl+alt+f5', silent_notifications)
+# add_hotkey('ctrl+alt+f5', silent_notifications)
 
 while 1:
     iterations += 1
@@ -36,7 +36,7 @@ while 1:
 
     api.sync()
 
-    print(len(api.state['day_orders']))
+    # print(len(api.state['day_orders']))
     for item in api.state['items']:
         try:
             due_date = item['due']['date']
@@ -48,8 +48,9 @@ while 1:
             if (due_date - timedelta(minutes=5)) <= today and not item['checked'] and {item['content'],
                                                                                        item['due']['date']} not in notified and not snooze:
                 notified.append({item['content'], item['due']['date']})
-                notification.show_toast(f"{item['content']} Task is next", "Disable notifications with ctrl+alt+f5", duration=10,
-                                        icon_path=r"C:\Users\JuanD\Desktop\Instant\todosit_remiders\res\todoist_logo.ico")
+                pync.notify("Hi", execute='say "OMG"', title='Todoist Reminders')
+                # notification.show_toast(f"{item['content']} Task is next", "Disable notifications with ctrl+alt+f5", duration=10,
+                #                         icon_path=r"C:\Users\JuanD\Desktop\Instant\todosit_remiders\res\todoist_logo.ico")
 
         except Exception as e:
             pass
