@@ -60,7 +60,6 @@ while 1:
 
     api.sync()
 
-    print(len(api.state['day_orders']))
     for item in api.state['items']:
         try:
             due_date = item['due']['date']
@@ -73,7 +72,7 @@ while 1:
                                                                                        item['due'][
                                                                                            'date']} not in notified and not snooze:
                 notified.append({item['content'], item['due']['date']})
-                pync.notify(f"{item['content']} Task is next", "Disable notifications with cmd+ctrl+l",
+                pync.notify(f"{item['content']} Task is next.", # Disable notifications with cmd+ctrl+l"
                             title='Todoist Reminders')
                 # notification.show_toast(f"{item['content']} Task is next", "Disable notifications with
                 # ctrl+alt+f5", duration=10,
