@@ -1,13 +1,17 @@
 from datetime import datetime, timedelta
 from time import sleep
-
 from dateutil import parser
 from pynput import keyboard
 from todoist.api import TodoistAPI
-import pync
-import threading
+from dotenv import load_dotenv
+from os import getenv
+from pync import notify
+from threading import Thread
 
-api = TodoistAPI('3ecd6c78d4e7a9548a4e4823807850906e8f6650')
+load_dotenv()
+creds = getenv('TODOIST_CREDENTIALS')
+
+api = TodoistAPI(creds)
 
 notified = []
 
@@ -46,7 +50,7 @@ def check_shortcuts():
         listener.join()
 
 
-t1 = threading.Thread(target=check_shortcuts, name='t1')
+t1 = Thread(target=check_shortcuts, name='t1')
 t1.start()
 
 # add_hotkey('ctrl+alt+f5', silent_notifications)
@@ -72,8 +76,8 @@ while 1:
                                                                                        item['due'][
                                                                                            'date']} not in notified and not snooze:
                 notified.append({item['content'], item['due']['date']})
-                pync.notify(f"{item['content']} Task is next.", # Disable notifications with cmd+ctrl+l"
-                            title='Todoist Reminders')
+                notify(f"{item['content']} Task is next.",  # Disable notifications with cmd+ctrl+l"
+                       title='Todoist Reminders')
                 # notification.show_toast(f"{item['content']} Task is next", "Disable notifications with
                 # ctrl+alt+f5", duration=10,
                 # icon_path=r"C:\Users\JuanD\Desktop\Instant\todosit_remiders\res\todoist_logo.ico")
