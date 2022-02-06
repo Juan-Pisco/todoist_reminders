@@ -37,8 +37,8 @@ For accessing your Todoist API, follow the next steps:
 
 4. Click on `Integrations`
 
-![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step4.png)
+![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step5.png)
 
 5. Scroll down and click on `Copy to clipboard` in the `API token` section
 
-![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step5.png)
+![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step4.png)
