@@ -28,10 +28,17 @@ Your Todoist API token is a unique id that makes your tasks and behavior trackab
 For accessing your Todoist API, follow the next steps:
 1. Open Todoist
 2. Click on your avatar on the top right of your Todoist window
+
 ![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step2.png)
+
 3. Click on `Settings`
+
 ![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step3.png)
+
 4. Click on `Integrations`
+
 ![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step4.png)
+
 5. Scroll down and click on `Copy to clipboard` in the `API token` section
+
 ![](https://github.com/JuanDavidPiscoJaimes/todoist_reminders/blob/master/res/step5.png)
