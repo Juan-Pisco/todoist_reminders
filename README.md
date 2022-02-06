@@ -22,7 +22,7 @@ There are 2 alternatives for running the program:
 1. Run it via terminal using `python main.py` located in the project's folder
 2. Run it via your favourite IDE (Pycharm, Spyder, etc.), running the `main.py` script
 
-## What's my Todoist API token? How do I get it?
+## What's my Todoist API token? How do I get it? 🤔
 Your Todoist API token is a unique id that makes your tasks and behavior trackable. This id is understandable by the Todoist python library which will be in charge of getting the necessary information to know when a task is due in 5 minutes or less.
 
 For accessing your Todoist API, follow the next steps:
